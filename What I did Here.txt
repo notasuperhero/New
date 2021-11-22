@@ -1,0 +1,51 @@
+Step By Step:
+
+I make a folder pikachu in my Desktop(using an old Mac).
+
+1. OpenCV folder is the folder that I copied from /usr/local/Cellar/opencv/4.5.3_2/include/opencv4
+Where all the header files are.
+
+2. I changed the relative paths in Header Files 
+example: 
+from #include “opecv2/core/persistence.hpp”
+To #include "/Users/arvindarya/Desktop/pikachu/opencv/4.5.3_2/include/opencv4/opencv2/core/persistence.hpp"
+
+
+3. Now I can get my header files in the Visual Studio Code which I opened in Superuser form to get access to move file around using:  sudo code --user-data-dir="~/.vscode-root"
+
+4. Then I used gcc -c main.cpp. I get the error:
+"OpenCV 4.x+ requires enabled C++11 support"
+
+5.So I run:
+g++ -std=c++11 main.cpp -c
+And hence I got the main.o File.
+
+
+6. Now I tried to compile Libraries into an Archive File. I unarchived the Files of which DYLIBs were working in my Xcode Project.: libopencv_imgcodecs.a and libopencv_core.a.
+
+7. In the folder Object_ files I ran :
+
+
+ar rcs newlib.a algorithm.cpp.o  matrix.cpp.o alloc.cpp.o matrix_c.cpp.o arithm.avx2.cpp.o matrix_decomp.cpp.o arithm.cpp.o matrix_expressions.cpp.o arithm.dispatch.cpp.o matrix_iterator.cpp.o array.cpp.o matrix_operations.cpp.o async.cpp.o matrix_sparse.cpp.o batch_distance.cpp.o matrix_transform.cpp.o bindings_utils.cpp.o matrix_wrap.cpp.o buffer_area.cpp.o	mean.avx2.cpp.o channels.cpp.o mean.dispatch.cpp.o check.cpp.o merge.avx2.cpp.o command_line_parser.cpp.o	merge.dispatch.cpp.o conjugate_gradient.cpp.o minmax.cpp.o convert.avx2.cpp.o norm.cpp.o convert.dispatch.cpp.o	ocl.cpp.o convert_c.cpp.o convert_scale.avx2.cpp.o  convert_scale.dispatch.cpp.o	 opencl_core.cpp.o copy.cpp.o opencl_kernels_core.cpp.o count_non_zero.avx2.cpp.o opengl.cpp.o count_non_zero.dispatch.cpp.o out.cpp.o cuda_gpu_mat.cpp.o ovx.cpp.o cuda_gpu_mat_nd.cpp.o  parallel.cpp.o cuda_host_mem.cpp.o	parallel_impl.cpp.o cuda_info.cpp.o  cuda_stream.cpp.o parallel_tbb.cpp.o datafile.cpp.o  pca.cpp.o datastructs.cpp.o	persistence.cpp.o directx.cpp.o persistence_json.cpp.o downhill_simplex.cpp.o persistence_types.cpp.o dxt.cpp.o persistence_xml.cpp.o filesystem.cpp.o persistence_yml.cpp.o gl_core_3_1.cpp.o rand.cpp.o glob.cpp.o samples.cpp.o hal_internal.cpp.o	softfloat.cpp.o kmeans.cpp.o	split.avx2.cpp.o lapack.cpp.o split.dispatch.cpp.o lda.cpp.o stat.avx2.cpp.o logger.cpp.o stat.dispatch.cpp.o logtagconfigparser.cpp.o stat_c.cpp.o logtagmanager.cpp.o  lpsolver.cpp.o	sum.avx2.cpp.o lut.cpp.o sum.dispatch.cpp.o mathfuncs.cpp.o system.cpp.o mathfuncs_core.avx.cpp.o tables.cpp.o mathfuncs_core.avx2.cpp.o trace.cpp.o mathfuncs_core.dispatch.cpp.o types.cpp.o matmul.avx2.cpp.o umatrix.cpp.o matmul.avx512_skx.cpp.o va_intel.cpp.o grfmt_jpeg2000_openjpeg.cpp.o apple_conversions.mm.o grfmt_pam.cpp.o bitstrm.cpp.o grfmt_pfm.cpp.o exif.cpp.o grfmt_png.cpp.o grfmt_base.cpp.o grfmt_pxm.cpp.o grfmt_bmp.cpp.o grfmt_sunras.cpp.o grfmt_exr.cpp.o grfmt_webp.cpp.o loadsave.cpp.o grfmt_hdr.cpp.o macosx_conversions.mm.o grfmt_jpeg.cpp.o rgbe.cpp.o   utils.cpp.o opencl_clblas.cpp.o opencl_clfft.cpp.o parallel_openmp.cpp.o stl.cpp.o grfmt_gdal.cpp.o grfmt_gdcm.cpp.o grfmt_jpeg2000.cpp.o grfmt_tiff.cpp.o 
+
+
+
+Which Gave me 
+newlib.a with error or Warning:
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(opencl_clblas.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(opencl_clfft.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(parallel_openmp.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(stl.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(grfmt_gdal.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(grfmt_gdcm.cpp.o) has no symbols
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib: file: newlib.a(grfmt_jpeg2000.cpp.o) has no symbols
+
+7. The I ran "g++ main.o newlib.a" on Termainal and get a lot of errors like:
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+8. Please help me this is a snippet of project. I want to compile ultimately. I cannot get it to run naively although I can run it through CMake. I have attached the CmakeLists.txt.
+
+Please tell me what to do. How do I link it to Emscripten.
+
+

@@ -1,0 +1,27 @@
+[2021-11-22 15:01:28.898] [renderer1] [info] Starting extension host with pid 1258.
+[2021-11-22 15:01:28.900] [renderer1] [info] [LocalProcessExtensionHost]: IExtensionHostStarter.start() took 11 ms.
+[2021-11-22 15:01:30.729] [renderer1] [error] [Extension Host] (node:1258) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `Code Helper (Renderer) --trace-deprecation ...` to show where the warning was created)
+[2021-11-22 15:01:47.979] [renderer1] [info] Starting extension host with pid 1319.
+[2021-11-22 15:01:47.981] [renderer1] [info] [LocalProcessExtensionHost]: IExtensionHostStarter.start() took 28 ms.
+[2021-11-22 15:01:49.854] [renderer1] [error] [Extension Host] (node:1319) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+(Use `Code Helper (Renderer) --trace-deprecation ...` to show where the warning was created)
+[2021-11-22 15:02:10.427] [renderer1] [error] [Extension Host] Error: Error: Command failed: global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"
+/bin/sh: global: command not found
+ `global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"` (exited with error code 127)
+[2021-11-22 15:20:46.904] [renderer1] [error] [Extension Host] Error: Error: Command failed: global -u
+/bin/sh: global: command not found
+ `global -u` (exited with error code 127)
+[2021-11-22 15:20:47.556] [renderer1] [error] [Extension Host] Error: Error: Command failed: global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"
+/bin/sh: global: command not found
+ `global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"` (exited with error code 127)
+[2021-11-22 15:23:21.077] [renderer1] [error] [Extension Host] gitExec:err:Failed to execute git {
+  "exitCode": 1,
+  "gitCommand": "config",
+  "stdout": "",
+  "stderr": ""
+}
+[2021-11-22 15:23:22.200] [renderer1] [error] Failed to execute git
+[2021-11-22 15:23:22.219] [renderer1] [error] [Extension Host] Error: Error: Command failed: global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"
+/bin/sh: global: command not found
+ `global --encode-path " " -f "/Users/arvindarya/Desktop/pikachu/main.cpp"` (exited with error code 127)

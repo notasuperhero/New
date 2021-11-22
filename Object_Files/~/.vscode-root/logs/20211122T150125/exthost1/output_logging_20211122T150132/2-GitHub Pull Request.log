@@ -1,0 +1,6 @@
+[Info] /Users/arvindarya/.ssh/config: ENOENT: no such file or directory, open '/Users/arvindarya/.ssh/config'
+[Info] TemporaryState> Error in initialization: Unable to delete nonexistent file '/Users/arvindarya/Desktop/pikachu/Object_Files/~/.vscode-root/User/globalStorage/github.vscode-pull-request-github/temp'
+[Info] Registering git provider
+[Info] Looking for git repository
+[Info] Found 0 repositories during activation
+[Info] Waiting for git repository
